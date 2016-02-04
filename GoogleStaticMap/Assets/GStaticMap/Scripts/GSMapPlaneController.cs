@@ -13,7 +13,7 @@ public class GSMapPlaneController : MonoBehaviour
     public Vector2 size;
     public Vector2 coordinate;
     public int zoom;
-    public ArrayList markers;
+    public Vector2[] markers;
     public GSMapType type;
 
     [Header("Developer")]
@@ -60,6 +60,7 @@ public class GSMapPlaneController : MonoBehaviour
         _mapCmp.Coordinate = coordinate;
         _mapCmp.Type = type;
         _mapCmp.Key = key;
+        _mapCmp.Markers = markers;
         _mapCmp.Load((Texture2D tex) =>
         {
             _renderer.material.mainTexture = tex;

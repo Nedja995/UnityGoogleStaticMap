@@ -35,7 +35,7 @@ namespace GSMap
         /// <summary>
         /// 
         /// </summary>
-        ArrayList Markers { get; set; }
+        Vector2[] Markers { get; set; }
         /// <summary>
         /// 
         /// </summary>
