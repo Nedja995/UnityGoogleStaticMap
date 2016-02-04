@@ -13,7 +13,7 @@ public class GSMapPlaneController : MonoBehaviour
     public Vector2 size;
     public Vector2 coordinate;
     public int zoom;
-    public Vector2[] markers;
+    public UIMarker[] markers;
     public GSMapType type;
 
     [Header("Developer")]

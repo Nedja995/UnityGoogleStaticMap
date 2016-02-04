@@ -39,7 +39,7 @@ namespace GSMap
                                             Vector2 coordinate,
                                             int zoom,
                                             GSMapType type,
-                                            Vector2[] markers,
+                                            IMarker[] markers,
                                             string key = "")
         {
             string ret = GoogleStaticMapUrlBase                                          // request base string adress
@@ -51,9 +51,9 @@ namespace GSMap
                                                               // + "&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C" + coo[1].ToString() + "," + coo[1].ToString();// + marker example
 
 
-            foreach (Vector2 marker in markers)
+            foreach (IMarker marker in markers)
             {
-                ret += "&markers=%7Clabel:1%7C" + marker[0].ToString() + "," + marker[1].ToString();
+                ret += "&markers=%7Clabel:1%7C" + marker.latitude.ToString() + "," + marker.longitude.ToString();
             }
 
 

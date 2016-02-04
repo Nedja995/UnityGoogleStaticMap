@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['makeurlrequest',['MakeUrlRequest',['../class_g_s_map_1_1_g_s_map_tool.html#a53e6a9d90ab70fb086aa8c9e720798bf',1,'GSMap.GSMapTool.MakeUrlRequest(GSIMap map)'],['../class_g_s_map_1_1_g_s_map_tool.html#aae33c2d72fab4e63135809fffee0f4c0',1,'GSMap.GSMapTool.MakeUrlRequest(Vector2 size, Vector2 coordinate, int zoom, GSMapType type, ArrayList markers, string key=&quot;&quot;)']]],
-  ['markers',['Markers',['../interface_g_s_map_1_1_g_s_i_map.html#a269390c2fc8987add8da8c400b017bc5',1,'GSMap::GSIMap']]]
+  ['latitude',['latitude',['../interface_g_s_map_1_1_i_marker.html#ae717e17068e87866290a6d8ffe50a3b7',1,'GSMap::IMarker']]],
+  ['load',['Load',['../class_g_s_map_component.html#af42a7c4558684078ab08f4573d0746bb',1,'GSMapComponent']]],
+  ['longitude',['longitude',['../interface_g_s_map_1_1_i_marker.html#a1ffc2dc7cfb6712db9efe8d627b5ef61',1,'GSMap::IMarker']]]
 ];

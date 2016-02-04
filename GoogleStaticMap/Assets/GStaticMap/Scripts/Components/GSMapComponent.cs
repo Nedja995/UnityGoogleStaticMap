@@ -79,7 +79,7 @@ public class GSMapComponent : MonoBehaviour, GSIMap
         set;
     }
 
-    public Vector2[] Markers
+    public IMarker[] Markers
     {
         get;
 

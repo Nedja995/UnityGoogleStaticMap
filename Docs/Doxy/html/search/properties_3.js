@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['size',['Size',['../interface_g_s_map_1_1_g_s_i_map.html#a34e33ff7530123d0993c8665c7666248',1,'GSMap::GSIMap']]]
+  ['markers',['Markers',['../interface_g_s_map_1_1_g_s_i_map.html#a5a17d61330979701fddd673cfabe7c50',1,'GSMap::GSIMap']]]
 ];

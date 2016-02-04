@@ -13,7 +13,6 @@ GameObject:
   - 23: {fileID: 2391608}
   - 114: {fileID: 11435028}
   - 114: {fileID: 11419704}
-  - 114: {fileID: 11430854}
   m_Layer: 0
   m_Name: GSMapPlane
   m_TagString: Untagged
@@ -86,22 +85,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 111840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9d391c687f50c49b56440128dbe63c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b6445ff77ee6af4f97ed00b5b5fc05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   printRequest: 0
---- !u!114 &11430854
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0926c703598e7a469a24c75489af4d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapPlane: {fileID: 11435028}
 --- !u!114 &11435028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,13 +97,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 111840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f8fd50606bdcf4ea6c4e12df8cd0f9, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ecab0b35595554095f910631d50108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 640, y: 400}
   coordinate: {x: 0, y: 0}
-  zoom: 4
-  type: 1
+  zoom: 0
+  markers:
+  - Latitude: 30
+    Longitude: 10
+  - Latitude: 50
+    Longitude: 0
+  - Latitude: 0
+    Longitude: 50
+  type: 0
   key: AIzaSyDb-yIJTeihCDkU_GAVK67i878h88zfYIk
   refresh: 1
 --- !u!1001 &100100000
