@@ -43,7 +43,7 @@ namespace GSMap
                                             string key = "")
         {
             string ret = GoogleStaticMapUrlBase                                          // request base string adress
-            + "center=" + coordinate[0].ToString() + "," + coordinate[1].ToString() // + position
+            + "center=" + coordinate[1].ToString() + "," + coordinate[0].ToString() // + position
             + "&zoom=" + zoom.ToString()                              // + zoom
             + "&size=" + size[0].ToString() + "x" + size[1].ToString()// + size
             + "&maptype=" + type.ToString().ToLower();                          // + maptype

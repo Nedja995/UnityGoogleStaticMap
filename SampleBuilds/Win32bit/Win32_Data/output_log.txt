@@ -19,12 +19,12 @@ Loading D:\Projects\UnityGoogleStaticMap\SampleBuilds\Win32bit\Win32_Data\Manage
 Platform assembly: D:\Projects\UnityGoogleStaticMap\SampleBuilds\Win32bit\Win32_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading D:\Projects\UnityGoogleStaticMap\SampleBuilds\Win32bit\Win32_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: D:\Projects\UnityGoogleStaticMap\SampleBuilds\Win32bit\Win32_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.366 seconds
+- Completed reload, in  0.174 seconds
 desktop: 1920x1080 60Hz; virtual: 3320x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: D:\Projects\UnityGoogleStaticMap\SampleBuilds\Win32bit\Win32_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 3588 -> priority: 1 
-  Thread -> id: 1b58 -> priority: 1 
+  Thread -> id: 34d4 -> priority: 1 
+  Thread -> id: 3f4 -> priority: 1 

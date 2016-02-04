@@ -14,6 +14,9 @@ GSMap
 |__Components
 |	|__MapPlaneController <- setting and present map on plane in scene
 |	|__MapComponent <- map implementation, download map
+|	|__OldGuiController <- gui for controlling map
 |	
 |__Tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## Documentation Doxygen:
