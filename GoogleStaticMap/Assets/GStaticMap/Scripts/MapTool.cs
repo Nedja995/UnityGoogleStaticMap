@@ -46,7 +46,7 @@ namespace GSMap
             + "center=" + coordinate[1].ToString() + "," + coordinate[0].ToString() // + position
             + "&zoom=" + zoom.ToString()                              // + zoom
             + "&size=" + size[0].ToString() + "x" + size[1].ToString()// + size
-            + "&maptype=" + type.ToString().ToLower();                          // + maptype
+            + "&maptype=" + type.ToString().ToLower();        // + maptype
                                                               // + "&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C" + coo[0].ToString() + "," + coo[1].ToString() // + marker example
                                                               // + "&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C" + coo[1].ToString() + "," + coo[1].ToString();// + marker example
 

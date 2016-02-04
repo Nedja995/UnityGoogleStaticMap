@@ -8,14 +8,40 @@ public class GSMapOldGuiController : MonoBehaviour {
 
     public GSMapPlaneController mapPlane;
 
-	// Use this for initialization
-	void Start () {
+    private int _zoom;
+
+    /* map type combo box */
+    GUIContent[] comboBoxList;
+    private ComboBox comboBoxControl;// = new ComboBox();
+    private GUIStyle listStyle = new GUIStyle();
+
+    //detect screen resize
+    private int _prevWidth;
+    private int _prevHeight;
+
+    // Use this for initialization
+    void Start () {
 
 	    if(mapPlane == null)  {
             //user not set map object
             Debug.LogError("GSMap: gui old: map not target");
         }
-	}
+
+        comboBoxList = new GUIContent[2];
+        comboBoxList[0] = new GUIContent("Satllite");
+        comboBoxList[1] = new GUIContent("Hybrid");
+
+
+        listStyle.normal.textColor = Color.white;
+        listStyle.onHover.background =
+        listStyle.hover.background = new Texture2D(2, 2);
+        listStyle.padding.left =
+        listStyle.padding.right =
+        listStyle.padding.top =
+        listStyle.padding.bottom = 4;
+
+        comboBoxControl = new ComboBox(new Rect(Screen.width - 100, Screen.height - 250, 100, 50), comboBoxList[0], comboBoxList, "button", "box", listStyle);
+    }
 
     void OnGUI()
     {
@@ -48,17 +74,16 @@ public class GSMapOldGuiController : MonoBehaviour {
     bool drawCoordinateControllers()
     {
         bool changed = false;
+
         string newCoordLatitude = GUI.TextField(new Rect(Screen.width - 300, Screen.height - 50, 150, 50), mapPlane.coordinate.x.ToString());
         string newCoordLongitude = GUI.TextField(new Rect(Screen.width - 150, Screen.height - 100, 150, 50), mapPlane.coordinate.y.ToString());
 
         float cooLat = float.Parse(newCoordLatitude);
         float cooLon = float.Parse(newCoordLongitude);
-
         if(cooLat != mapPlane.coordinate.x)  {
             mapPlane.coordinate.x = cooLat;
             changed = true;
         }
-
         if(cooLon != mapPlane.coordinate.y)  {
             mapPlane.coordinate.y = cooLon;
             changed = true;
@@ -90,16 +115,42 @@ public class GSMapOldGuiController : MonoBehaviour {
     bool drawZoomControllers()
     {
         bool changed = false;
+
+        _zoom = (int)GUI.VerticalSlider(new Rect(Screen.width - 50, Screen.height - 650, 50, 300), _zoom, 17, 0);
+
+        if(_zoom != mapPlane.zoom) {
+            changed = true;
+            mapPlane.zoom = (int)_zoom;
+        }
+
         return changed;
     }
 
     bool drawTypeControllers()
     {
         bool changed = false;
+        
+        int selectedItemIndex = comboBoxControl.Show();
+        GUI.Label(new Rect(Screen.width - 100, Screen.height - 280, 100, 50), comboBoxList[selectedItemIndex].text);
+
+        if(selectedItemIndex == 0 && mapPlane.type != GSMap.GSMapType.Satellite) {
+            changed = true;
+            mapPlane.type = GSMap.GSMapType.Satellite;
+        }
+        else if (selectedItemIndex == 1 && mapPlane.type != GSMap.GSMapType.Hybrid) {
+            changed = true;
+            mapPlane.type = GSMap.GSMapType.Hybrid;
+        }
+
         return changed;
     }
     // Update is called once per frame
     void Update () {
-	
+	    if(_prevWidth != Screen.width || _prevHeight != Screen.height) {
+            //screen resize
+            _prevWidth = Screen.width;
+            _prevHeight = Screen.height;
+            comboBoxControl = new ComboBox(new Rect(Screen.width - 100, Screen.height - 250, 100, 50), comboBoxList[0], comboBoxList, "button", "box", listStyle);
+        }
 	}
 }
