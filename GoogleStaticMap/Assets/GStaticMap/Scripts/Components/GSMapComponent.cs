@@ -1,14 +1,39 @@
-﻿using UnityEngine;
+﻿/*
+ * Copyright (c) 2016 Nedeljko Pejasinovic (nedjaunity@gmail.com)
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+using UnityEngine;
 using System.Collections;
 using System;
 
 using GSMap;
 
 /// <summary>
-/// 
+/// Controller that comunicate with Google Static Map service.
 /// </summary>
 public class GSMapComponent : MonoBehaviour, GSIMap
 {
+    [Header("Developer")]
+    public string key;
+
     [Header("Debug")]
     public bool printRequest;
 
@@ -16,11 +41,7 @@ public class GSMapComponent : MonoBehaviour, GSIMap
     private bool _loaded;
     private Action<Texture2D> _onLoad;
 
-    void Start()
-    {
-
-    }
-
+    // Execute callbacks in main thread
     void Update()
     {
         if (_loaded)
@@ -28,11 +49,13 @@ public class GSMapComponent : MonoBehaviour, GSIMap
             _loaded = false;
             if (_mapTexture == null || _onLoad == null)
             {
-                Debug.Log("GSMap: MapComponent: failed load data");
+                // No data loaded
             }
             else
             {
+                // Execute callback
                 _onLoad(_mapTexture);
+                // Reset callback
                 _onLoad = null;
             }
         }
@@ -44,12 +67,14 @@ public class GSMapComponent : MonoBehaviour, GSIMap
     /// <param name="onLoad"></param>
     public void Load(Action<Texture2D> onLoad)
     {
+        // configure developer key
+        DeveloperKey = key;
         _onLoad = onLoad;
-        StartCoroutine(_reloadImage());
+        StartCoroutine(_loadImage());
     }
 
 
-    private IEnumerator _reloadImage()
+    private IEnumerator _loadImage()
     {
         //make url
         string reqUrl = GSMapTool.MakeUrlRequest(this);
@@ -107,7 +132,7 @@ public class GSMapComponent : MonoBehaviour, GSIMap
         set;
     }
 
-    public string Key
+    public string DeveloperKey
     {
         get;
 

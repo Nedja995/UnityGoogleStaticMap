@@ -1,17 +1,40 @@
-﻿using UnityEngine;
+﻿/*
+ * Copyright (c) 2016 Nedeljko Pejasinovic (nedjaunity@gmail.com)
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+using UnityEngine;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 /// <summary>
-/// 
+/// Map controller with Unity old gui elements
 /// </summary>
 public class GSMapOldGuiController : MonoBehaviour {
 
-    public GSMapPlaneController mapPlane;
+    public GSMapRendererController mapPlane;
 
     private int _zoom;
 
     /* map type combo box */
-    GUIContent[] comboBoxList;
+    private GUIContent[] comboBoxList;
     private ComboBox comboBoxControl;// = new ComboBox();
     private GUIStyle listStyle = new GUIStyle();
 
@@ -43,6 +66,15 @@ public class GSMapOldGuiController : MonoBehaviour {
         comboBoxControl = new ComboBox(new Rect(Screen.width - 100, Screen.height - 250, 100, 50), comboBoxList[0], comboBoxList, "button", "box", listStyle);
     }
 
+    void Update () {
+	    if(_prevWidth != Screen.width || _prevHeight != Screen.height) {
+            //screen resize
+            _prevWidth = Screen.width;
+            _prevHeight = Screen.height;
+            comboBoxControl = new ComboBox(new Rect(Screen.width - 100, Screen.height - 250, 100, 50), comboBoxList[0], comboBoxList, "button", "box", listStyle);
+        }
+	}
+
     void OnGUI()
     {
         bool refreshMap = false;
@@ -71,15 +103,18 @@ public class GSMapOldGuiController : MonoBehaviour {
            
     }
 
+    #region DRAW_FUNCTIONS
     bool drawCoordinateControllers()
     {
         bool changed = false;
 
         string newCoordLatitude = GUI.TextField(new Rect(Screen.width - 300, Screen.height - 50, 150, 50), mapPlane.coordinate.x.ToString());
         string newCoordLongitude = GUI.TextField(new Rect(Screen.width - 150, Screen.height - 100, 150, 50), mapPlane.coordinate.y.ToString());
-
+      
         float cooLat = float.Parse(newCoordLatitude);
         float cooLon = float.Parse(newCoordLongitude);
+
+        // check is it changed
         if(cooLat != mapPlane.coordinate.x)  {
             mapPlane.coordinate.x = cooLat;
             changed = true;
@@ -144,13 +179,5 @@ public class GSMapOldGuiController : MonoBehaviour {
 
         return changed;
     }
-    // Update is called once per frame
-    void Update () {
-	    if(_prevWidth != Screen.width || _prevHeight != Screen.height) {
-            //screen resize
-            _prevWidth = Screen.width;
-            _prevHeight = Screen.height;
-            comboBoxControl = new ComboBox(new Rect(Screen.width - 100, Screen.height - 250, 100, 50), comboBoxList[0], comboBoxList, "button", "box", listStyle);
-        }
-	}
+    #endregion DRAW_FUNCTIONS
 }

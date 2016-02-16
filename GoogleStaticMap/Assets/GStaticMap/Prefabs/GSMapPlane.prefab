@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6445ff77ee6af4f97ed00b5b5fc05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: AIzaSyDb-yIJTeihCDkU_GAVK67i878h88zfYIk
   printRequest: 0
 --- !u!114 &11435028
 MonoBehaviour:
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 111840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ecab0b35595554095f910631d50108, type: 3}
+  m_Script: {fileID: 11500000, guid: e8c3cb08ad7d0924aae2ade2d8e974b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 640, y: 400}
@@ -111,7 +112,6 @@ MonoBehaviour:
   - Latitude: 0
     Longitude: 50
   type: 0
-  key: AIzaSyDb-yIJTeihCDkU_GAVK67i878h88zfYIk
   refresh: 1
 --- !u!1001 &100100000
 Prefab:

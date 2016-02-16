@@ -12,8 +12,8 @@ GSMap
 |	|__MapPlane <- plane with scripts that is map
 |
 |__Components
-|	|__MapPlaneController <- setting and present map on plane in scene
-|	|__MapComponent <- map implementation, download map
+|	|__MapRendererController <- setting and present map on mesh renderer in scene
+|	|__MapComponent <- map implementation, comunicate with Google Static Map service
 |	|__OldGuiController <- gui for controlling map
 |	
 |__Tool
